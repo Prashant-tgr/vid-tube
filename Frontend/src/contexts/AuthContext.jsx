@@ -13,7 +13,7 @@ export const AuthProvider = ({ children }) => {
     const login = async (email, password) => {
         try {
             setError(null);  // Clear previous errors
-            const response = await axios.post('http://localhost:8000/api/v1/users/login', { email, password });
+            const response = await axios.post(`${API}/api/v1/users/login`, { email, password });
             const { accessToken, refreshToken, user: userData } = response.data.data;
             localStorage.setItem('accessToken', accessToken);
             localStorage.setItem('refreshToken', refreshToken);
@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
     const register = async (formData) => {
         try {
             setError(null);  // Clear previous errors
-            const response = await axios.post('http://localhost:8000/api/v1/users/register', formData, {
+            const response = await axios.post(`${API}/api/v1/users/register`, formData, {
                 headers: { 'Content-Type': 'multipart/form-data' },
             });
             const { accessToken, refreshToken, user: userData } = response.data.data;
