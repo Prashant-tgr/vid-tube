@@ -6,8 +6,14 @@ const app = express()
 
 app.use(cors({
     origin: process.env.CORS_ORIGIN,
-    credentials: true
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"]
 }))
+
+
+app.options(/.*/, cors());
+
 
 app.use(express.json({limit: "16kb"}))
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
@@ -20,6 +26,8 @@ import userRouter from './routes/user.routes.js'
 //route declaration
 app.use("/api/v1/users", userRouter)
 // app.use("/api/v1/videos", videoRouter) // TODO: Uncomment when video routes are created
+
+console.log("CORS:", process.env.CORS_ORIGIN)
 
 
 export {app}
