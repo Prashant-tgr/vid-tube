@@ -1,5 +1,5 @@
-Frontend–Backend Integration: Scalability & Production Considerations
-1. Current Architecture Overview
+**Frontend–Backend Integration: Scalability & Production Considerations**
+**1. Current Architecture Overview**
 
 The application follows a MERN-style architecture:
 
@@ -15,7 +15,7 @@ Media Storage: Cloudinary for avatar uploads
 
 The frontend communicates with the backend via REST APIs secured using JWT-based authentication and CORS policies.
 
-2. Scalability Strategy
+****2. Scalability Strategy****
 2.1 Frontend Scalability
 
 To scale the frontend for production:
@@ -209,6 +209,6 @@ It can scale from:
 100 users → 100,000+ users
 without changing the core architecture.
 
-Final Note
+**Final Note**
 
 The project is designed using real-world SaaS patterns and follows modern full-stack engineering principles. With minor infrastructure additions (Redis, Docker, Load Balancer), it is fully production-ready for large-scale usage.
