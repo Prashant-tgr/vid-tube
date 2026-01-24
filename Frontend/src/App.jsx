@@ -1,10 +1,10 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { useAuth } from './contexts/AuthContext';
 import ProtectedRoute from './components/ProtectedRoute';
 import LazyImage from './components/LazyImage';
 import { lazy, Suspense, memo } from 'react';
 import './App.css'
-
+import Profile from './components/Profile'
 // Lazy load components for better performance
 const Login = lazy(() => import('./components/Login'));
 const Register = lazy(() => import('./components/Register'));
@@ -45,7 +45,9 @@ function Home() {
         <nav>
           <a href="/">Home</a>
           <a href="#">Upload</a>
-          <a href="#">Profile</a>
+          <Link to="/profile">Profile</Link>
+          <img src={user.avatar} className="nav-avatar" />
+
           {user && <span>Welcome, {user.fullname || user.username}!</span>}
           <button onClick={logout}>Logout</button>
         </nav>
@@ -79,9 +81,15 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        
         <Route path="/" element={
           <ProtectedRoute>
             <Home />
+          </ProtectedRoute>
+        } />
+        <Route path="/profile" element={
+          <ProtectedRoute>
+            <Profile />
           </ProtectedRoute>
         } />
       </Routes>
