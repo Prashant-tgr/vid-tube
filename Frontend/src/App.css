@@ -141,3 +141,10 @@
 .btn-secondary:hover {
   background-color: #555;
 }
+.nav-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-left: 1rem;
+}
