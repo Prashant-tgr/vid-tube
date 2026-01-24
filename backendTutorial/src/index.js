@@ -5,9 +5,7 @@ import express from 'express'
 import connectDB from "./db/Index.js";
 import { app } from "./app.js";
 
-dotenv.config({
-    path: './.env'
-});
+dotenv.config();
 
 connectDB()
 .then(()=> {
