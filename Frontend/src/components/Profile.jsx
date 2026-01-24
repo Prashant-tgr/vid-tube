@@ -1,6 +1,6 @@
 import { useAuth } from "../contexts/AuthContext";
 import { useState } from "react";
-import {API} from "../src/config";
+import {API} from "../config";
 
 function Profile() {
   const { user, setUser } = useAuth();
@@ -83,4 +83,5 @@ function Profile() {
 }
 
 export default Profile;
+
 
